@@ -1,0 +1,21 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "start": "node-sass examples/src --output examples/dist",
+    "cat": "cat examples/src/use-var.sass | node-sass --output > examples/dist/use-var.css "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-react": "^3.1.0",
+    "gulp-sass": "^2.1.1",
+    "node-sass": "^3.4.2",
+    "react": "^0.14.3"
+  }
+}

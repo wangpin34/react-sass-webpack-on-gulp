@@ -12,10 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.0",
     "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
     "gulp-react": "^3.1.0",
     "gulp-sass": "^2.1.1",
+    "gulp-webpack": "^1.5.0",
     "node-sass": "^3.4.2",
-    "react": "^0.14.3"
+    "react": "^0.14.3",
+    "style-loader": "^0.13.0"
   }
 }

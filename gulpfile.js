@@ -2,7 +2,8 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    webpack = require('gulp-webpack');
 
 gulp.task('sass', function () {
   gulp.src('./app/src/*.scss')
@@ -13,9 +14,15 @@ gulp.task('sass', function () {
 gulp.task('react', function () {
     gulp.src('./app/src/*.jsx')
         .pipe(babel({
-            presents:['react']
+            presets:['react']
         }))
         .pipe(gulp.dest('./app/dist/'));
+});
+
+gulp.task('webpack',function(){
+  gulp.src('./app/entry.js')
+        .pipe(webpack(require('./webpack.config.js')))
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('sass:watch', function () {
@@ -26,5 +33,8 @@ gulp.task('react:watch', function () {
   gulp.watch('./app/src/*.jsx', ['react']);
 });
 
+gulp.task('webpack:watch', function () {
+  gulp.watch(['./app/dist/*','./app/src/*'], ['webpack']);
+});
 
-gulp.task('default', ['sass:watch','react:watch']);
+gulp.task('default', ['sass:watch','react:watch','webpack:watch']);

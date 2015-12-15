@@ -4,9 +4,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   babel = require('gulp-babel'),
   webpack = require('gulp-webpack'),
-  server = require('gulp-develop-server'),
-  browserSync = require('browser-sync').create()
-  ;
+  browserSync = require('browser-sync').create();
 
 gulp.task('sass', function() {
   gulp.src('./app/src/*.scss')

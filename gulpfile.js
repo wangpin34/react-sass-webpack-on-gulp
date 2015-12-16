@@ -36,13 +36,21 @@ gulp.task('react:watch', function() {
   gulp.watch('./app/src/*.jsx', ['react']);
 });
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "app"
-        }
-    });
-    gulp.watch(['app/*.html','app/*.js']).on('change', browserSync.reload);
+gulp.task('js', function() {
+  gulp.src('app/src/*.js').pipe(gulp.dest('app/dist/'));
 });
 
-gulp.task('default', ['sass:watch', 'react:watch', 'webpack','browser-sync']);
+gulp.task('js:watch', function() {
+  gulp.watch('app/src/*.js', ['js']);
+});
+
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    server: {
+      baseDir: "app"
+    }
+  });
+  gulp.watch(['app/*.html', 'app/*.js']).on('change', browserSync.reload);
+});
+
+gulp.task('default', ['sass', 'react', 'js', 'sass:watch', 'react:watch', 'js:watch', 'webpack', 'browser-sync']);

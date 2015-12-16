@@ -1,7 +1,9 @@
-var hello = require('./src/hello.js');
+require('./dist/use-var.css');
+require('./dist/compute.css');
+
+var hello = require('./dist/hello.js');
 var button = require('./dist/button.js');
-var use_var = require('./dist/use-var.css');
-var use_var = require('./dist/compute.css');
+
 var React = require('react');
 var ReactDom = require('react-dom');
 
